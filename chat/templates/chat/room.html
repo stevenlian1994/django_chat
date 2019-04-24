@@ -4,14 +4,19 @@
 <head>
     <meta charset="utf-8"/>
     <title>Chat Room</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
 </head>
 <body>
     <textarea id="chat-log" cols="100" rows="20"></textarea><br/>
-    <input id="chat-message-input" type="text" size="100"/><br/>
-    <input id="chat-message-submit" type="button" value="Send"/>
+    <span>{{request.session.email}} : </span><input id="chat-message-input" type="text" size="65"/>
+    <input id="chat-message-submit" type="button" value="Send"/><br>
+    <a href="/logout">Logout</a>
+    <a href="/chat">Back to Lobby</a>
 </body>
 <script>
     var roomName = {{ room_name_json }};
+    var this_email = {{ this_email_json }};
 
     var chatSocket = new WebSocket(
         'ws://' + window.location.host +
@@ -36,7 +41,9 @@
 
     document.querySelector('#chat-message-submit').onclick = function(e) {
         var messageInputDom = document.querySelector('#chat-message-input');
-        var message = messageInputDom.value;
+        // add user's email
+        var message = '' + this_email + ': ' + messageInputDom.value;
+        // var message = 'hello world'
         chatSocket.send(JSON.stringify({
             'message': message
         }));
