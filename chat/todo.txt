@@ -1,7 +1,5 @@
 Work on Mysite/Chat (2-5 hours)
--add username - DONE
--add login and registration - DONE
--add bootstrap
+
 -add database
     -for users - DONE
     -for chat history.. 
@@ -20,3 +18,9 @@ Study Channel (2-3 hours)
 
 Work on Deployment (2-5 hours)
 -look up different options/code-alongs/tutorials
+
+
+DONE:
+-add username - DONE
+-add login and registration - DONE
+-add bootstrap
