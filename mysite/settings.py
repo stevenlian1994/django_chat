@@ -25,7 +25,7 @@ SECRET_KEY = 'rpkyza^96=d$igmh3=9hk*w1x*ffmutywadk&uk=m3#l4r9je0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.202.7.170']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -121,17 +121,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# mysite/settings.py
-# Channels
-ASGI_APPLICATION = 'mysite.routing.application'
-# mysite/settings.py
 # Channels
 ASGI_APPLICATION = 'mysite.routing.application'
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('192.168.99.100', 6379)],
+            "hosts": [('127.0.0.1', 6379)],
         },
     },
 }

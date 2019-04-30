@@ -16,7 +16,7 @@ def register(request):
         errors = User.objects.basic_validator(request.POST)
         if len(errors) > 0:
             for key in errors:
-                messages.error(request, errors[key])
+                messages.errcdor(request, errors[key])
             return redirect("/")
         else:
             password = bcrypt.hashpw(request.POST["password"].encode(), bcrypt.gensalt())

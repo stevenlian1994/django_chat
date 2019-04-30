@@ -1,4 +1,5 @@
 Work on Mysite/Chat (2-5 hours)
+--display users in room
 
 -add database
     -for users - DONE
